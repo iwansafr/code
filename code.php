@@ -6,6 +6,11 @@
 	<title>CODE ESOFTGREAT | Free JS Coding Editor</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<?php 
+	$root=(isset($_SERVER['HTTPS']) ? "https://" : "http://").$_SERVER['HTTP_HOST'];
+	$root.= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+	$_URL = $root;
+	?>
 </head>
 <body>
 	<div class="container">
@@ -51,7 +56,7 @@
 			</form>
 			<div class="col-12">
 				<div class="form-floating">
-					<iframe src="http://localhost/pd/output.php?html=<?php echo urlencode(@$_POST['html']);?>&style=<?php echo urlencode(@$_POST['style']);?>&script=<?php echo urlencode(@$_POST['script']);?>" frameborder="1" style="width: 100%;"></iframe>
+					<iframe src="<?php echo $_URL;?>output.php?html=<?php echo urlencode(@$_POST['html']);?>&style=<?php echo urlencode(@$_POST['style']);?>&script=<?php echo urlencode(@$_POST['script']);?>" frameborder="1" style="width: 100%;"></iframe>
 				</div>
 			</div>
 		</div>
